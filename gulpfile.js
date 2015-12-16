@@ -11,29 +11,29 @@ var argv = require('yargs').argv
 var gulpif = require('gulp-if')
 var plumber = require('gulp-plumber')
 
-var bower_dir = 'bower_components/'
-var master_dir = 'master/'
-var public_dir = 'public/'
+var bower_dir = 'bower_components'
+var master_dir = 'master'
+var public_dir = 'public'
 
 var vendors = {
     scripts: [
-        bower_dir + 'angular/angular.js',
-        bower_dir + 'angular-i18n/angular-locale_pt-br.js',
-        bower_dir + 'angular-resource/angular-resource.js',
-        bower_dir + 'angular-ui-router/release/angular-ui-router.js'
+        bower_dir + '/angular/angular.js',
+        bower_dir + '/angular-i18n/angular-locale_pt-br.js',
+        bower_dir + '/angular-resource/angular-resource.js',
+        bower_dir + '/angular-ui-router/release/angular-ui-router.js'
     ]
 }
 
 var master = {
     scripts: [
-        master_dir + 'js/app.js',
-        master_dir + 'js/controllers/*.js',
-        master_dir + 'js/directives/*.js',
-        master_dir + 'js/filters/*.js',
-        master_dir + 'js/services/*.js'
+        master_dir + '/js/app.js',
+        master_dir + '/js/controllers/*.js',
+        master_dir + '/js/directives/*.js',
+        master_dir + '/js/filters/*.js',
+        master_dir + '/js/services/*.js'
     ],
     sass: [
-        master_dir + 'sass/style.scss'
+        master_dir + '/sass/style.scss'
     ],
     html: [
         master_dir + '/html/**/*'
@@ -91,7 +91,7 @@ gulp.task('base', ['bower'], function() {
 
 gulp.task('watch', ['html', 'scripts', 'sass', 'bower', 'base', 'images'], function() {
     gulp.watch(master.scripts, ['scripts'])
-    gulp.watch(master_dir + 'sass/*.scss', ['sass'])
+    gulp.watch(master_dir + '/sass/*.scss', ['sass'])
     gulp.watch(master.html, ['html'])
     gulp.watch(master.images, ['images'])
     gulp.watch('bower.json', ['base'])
@@ -99,7 +99,7 @@ gulp.task('watch', ['html', 'scripts', 'sass', 'bower', 'base', 'images'], funct
 
 gulp.task('nodemon', function() {
     nodemon({
-        script: 'app.js',
+        script: 'index.js',
         ignore: ['node_modules/', 'public/', 'bower_components/', 'master/'],
         port: process.env.PORT || 8080
     })

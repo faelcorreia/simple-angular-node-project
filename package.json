@@ -5,6 +5,7 @@
     "type": "git",
     "url": "https://github.com/faelcorreia/simple-angular-node-project"
   },
+  "main": "index.js",
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-bower": "0.0.10",
